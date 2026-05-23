@@ -1,17 +1,29 @@
 {
-  "name": "nextjs-f1gpt",
+  "name": "nextjs-f1gemini",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "seed": "ts-node ./scripts/loadDb.ts",
+    "install:chrome": "puppeteer browsers install chrome",
     "lint": "eslint"
   },
   "dependencies": {
+    "@datastax/astra-db-ts": "^2.2.1",
+    "@google/genai": "^2.6.0",
+    "@langchain/community": "^1.1.28",
+    "@langchain/core": "^1.1.48",
+    "@langchain/textsplitters": "^1.0.1",
+    "ai": "^4.3.19",
+    "dotenv": "^17.4.2",
+    "langchain": "^1.4.2",
     "next": "16.2.6",
+    "puppeteer": "^25.0.4",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
