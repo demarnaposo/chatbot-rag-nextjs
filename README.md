@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js RAG Chatbot (Gemini + Vector DB)
 
-## Getting Started
+Project ini adalah aplikasi Chatbot pintar berbasis RAG (Retrieval-Augmented Generation) yang dibangun menggunakan **Next.js**, **Gemini API (Google GenAI)**, dan **Vector Database** untuk kebutuhan basis pengetahuan (knowledge base).
 
-First, run the development server:
+---
 
+## 🚀 Panduan Memulai (Getting Started)
+
+Ikuti langkah-langkah di bawah ini secara berurutan untuk menjalankan project ini di lingkungan lokal Anda:
+
+### 1. Clone Repository
+Pertama, silakan clone project ini dan masuk ke dalam foldernya:
 ```bash
+git clone [https://github.com/demarnaposo/chatbot-rag-nextjs.git](https://github.com/demarnaposo/chatbot-rag-nextjs.git)
+cd chatbot-rag-nextjs
+2. Setup Environment Variables (.env)
+Buat sebuah file baru bernama .env di root folder project Anda (sejajar dengan package.json), lalu isi dengan API Key dan konfigurasi database yang Anda gunakan:
+
+Cuplikan kode
+# Google Gemini API Key
+GEMINI_API_KEY=your_gemini_api_key_here
+
+# Konfigurasi Astra DB
+ASTRA_DB_NAMESPACE=default
+ASTRA_DB_APPLICATION_TOKEN=your_astra_token
+ASTRA_DB_API_ENDPOINT=your_astra_endpoint
+ASTRA_DB_COLLECTION=your_collection_name
+3. Install Dependencies
+Jalankan perintah berikut untuk mengisntall semua library yang dibutuhkan:
+
+💡 Catatan Penting: Project ini menggunakan file .npmrc dengan konfigurasi legacy-peer-deps=true untuk menghindari konflik versi pada ekosistem library AI/LangChain. Anda cukup menjalankan perintah standar berikut:
+
+Bash
+npm install
+(Opsional) Jika Anda menggunakan script Puppeteer untuk scraping data (dynamic seeding), jalankan perintah ini setelah instalasi selesai untuk memastikan binary browser Chrome terpasang dengan benar:
+
+Bash
+npm run install:chrome
+4. Menjalankan Database Seed (npm run seed)
+Sebelum menjalankan aplikasi, Anda perlu mengisi data pengetahuan ke dalam Vector DB terlebih dahulu dengan menjalankan script seeding (proses membaca dokumen, membuat embedding via Gemini, dan menyimpannya ke database):
+
+Bash
+npm run seed
+Silakan tunggu sampai proses seeding selesai dan log menunjukkan data telah berhasil masuk ke database.
+
+5. Jalankan Development Server
+Setelah database terisi, sekarang Anda dapat menjalankan aplikasi Next.js:
+
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Buka http://localhost:3000 di browser Anda untuk mencoba aplikasi chatbot tersebut.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🛠️ Tech Stack & Arsitektur
+Framework: Next.js (App Router)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+AI Model: Google GenAI SDK (gemini-embedding-001 & Gemini Pro/Flash)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Orchestration: LangChain / Text Splitters
 
-## Learn More
+Vector Database Options: Datastax Astra DB
 
-To learn more about Next.js, take a look at the following resources:
+📖 Dokumen Pendukung
+Untuk mempelajari lebih lanjut tentang teknologi yang digunakan di project ini:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Next.js Documentation - Fitur dan API Next.js.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Google GenAI Docs - Dokumentasi API Gemini.

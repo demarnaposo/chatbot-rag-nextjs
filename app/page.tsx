@@ -32,10 +32,10 @@ const Home = () => {
                 {noMessage ? (
                     <>
                     <p className="starter-text">
-                        The Ultimate place for Formula One super fans!
-                        Ask me anything about the fantastic topic of F1 racing
-                        and it will come back with the most up-to-date answers.
-                        We hope you enjoy!
+                        Tempat terbaik untuk para super fans Formula One!
+                        Tanyakan apa pun tentang dunia balap F1 yang luar biasa
+                        dan kami akan memberikan jawaban paling terbaru dan terkini.
+                        Semoga Anda menikmati pengalaman ini!
                     </p>
                     <br/>
                     <PromptSuggestionsRow onPromptClick={handlePrompt}/>
