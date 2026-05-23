@@ -6,13 +6,18 @@ Project ini adalah aplikasi Chatbot pintar berbasis RAG (Retrieval-Augmented Gen
 
 ## 🚀 Panduan Memulai (Getting Started)
 
-Ikuti langkah-langkah di bawah ini secara berurutan untuk menjalankan project ini di lingkungan lokal Anda:
 
-### 1. Clone Repository
-Pertama, silakan clone project ini dan masuk ke dalam foldernya:
+Ikuti langkah-langkah di bawah ini secara berurutan untuk menjalankan project ini di lingkungan lokal Anda:
 ```bash
+
+1. Clone Repository
+Pertama, silakan clone project ini dan masuk ke dalam foldernya:
+
 git clone [https://github.com/demarnaposo/chatbot-rag-nextjs.git](https://github.com/demarnaposo/chatbot-rag-nextjs.git)
 cd chatbot-rag-nextjs
+
+
+
 2. Setup Environment Variables (.env)
 Buat sebuah file baru bernama .env di root folder project Anda (sejajar dengan package.json), lalu isi dengan API Key dan konfigurasi database yang Anda gunakan:
 
