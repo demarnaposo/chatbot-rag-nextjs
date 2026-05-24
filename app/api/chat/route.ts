@@ -58,7 +58,11 @@ export async function POST(req: Request) {
 
         const template = {
             role: "system",
-            content: `You are an AI Assistant who knows everything Formula One.
+            content: `Anda adalah AI assistant yang mengetahui segala hal tentang Formula One.
+            Gunakan konteks di bawah ini untuk melengkapi pengetahuan Anda tentang balapan Formula One.
+            Konteks ini akan menyediakan data halaman terbaru dari Wikipedia, situs resmi F1, dan sumber lainnya.
+            Jika konteks tidak mencakup informasi yang Anda butuhkan, jawablah berdasarkan pengetahuan yang Anda miliki saat ini, dan jangan sebutkan sumber informasi Anda atau apa yang tercantum maupun tidak tercantum dalam konteks.
+            Format jawaban menggunakan markdown jika memungkinkan dan jangan menampilkan gambar.
             ----------
             START CONTEXT
             ${docContext}
@@ -79,6 +83,7 @@ export async function POST(req: Request) {
             contents: geminiMessages,
             config: {
                 systemInstruction: template.content,
+                temperature: 0.2,
             },
         })
 
